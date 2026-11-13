@@ -1,0 +1,53 @@
+displayName,year,position,stop_reason,input_tokens,output_tokens,cache_read_tokens,cache_write_tokens,projected_tier,role,injury_flag,character_flag,tone,confidence,evidence,recognized,latency_s,prompt_version,model
+Brenton Cox Jr.,2023,EDGE,end_turn,562,89,0,1687,R4-7,backup,0,1,3,2,He has the potential to slot in as a rotational 3-4 outside 'backer,False,3.0,v1,claude-opus-5-5
+Brian Branch,2023,CB,end_turn,514,96,1687,0,R1,starter,0,0,5,2,Plug-and-play defensive back with every ingredient necessary to become a high-performing starter early in his career.,False,2.6,v1,claude-opus-5-5
+Brodric Martin,2023,DT,end_turn,395,98,1687,0,R4-7,backup,0,0,3,3,[PLAYER]’s traits and talent create Day 3 draft value as a rotational interior lineman.,False,2.15,v1,claude-opus-5-5
+Colby Sorsdal,2023,OT,end_turn,349,86,1687,0,R4-7,backup,0,0,2,1,will need to prepare for life as an interior lineman due to his lack of length,False,2.57,v1,claude-opus-5-5
+DeMarcco Hellams,2023,DB,end_turn,368,89,1687,0,R4-7,backup,0,0,3,2,[PLAYER] has a chance to become a good backup and plus special teams player.,False,2.62,v1,claude-opus-5-5
+Deuce Vaughn,2023,RB,end_turn,431,109,1687,0,R4-7,backup,0,0,3,1,"[PLAYER] has an uphill climb ahead of him, but his history of consistent, high-end production makes the climb to success seem achievable.",False,1.63,v1,claude-opus-5-5
+Emmanuel Forbes,2023,CB,end_turn,529,105,1687,0,R2-3,eventual_starter,0,0,4,2,"[PLAYER] could become an early starter with quality ball production, but teams might need to expect some up-and-down performances.",False,2.05,v1,claude-opus-5-5
+Jaelyn Duncan,2023,OT,end_turn,471,90,1687,0,R4-7,roster_bubble,0,0,2,2,might have the best chance to stick in the league as a zone-scheme guard,False,2.06,v1,claude-opus-5-5
+Jaray Jenkins,2023,WR,end_turn,384,88,1687,0,UDFA,roster_bubble,0,0,2,2,there might be too many missing elements for him to stick around on a roster.,False,1.77,v1,claude-opus-5-5
+Jordan Addison,2023,WR,end_turn,469,89,1687,0,R2-3,backup,0,0,3,1,lacking the size and catch strength generally associated with high-impact performers on the next level,True,2.28,v1,claude-opus-5-5
+Jordan Battle,2023,SAF,end_turn,457,92,1687,0,R2-3,eventual_starter,0,0,4,2,"offers the size, speed and pedigree to become a starter early in his NFL career",False,1.39,v1,claude-opus-5-5
+Juice Scruggs,2023,C,end_turn,451,93,1687,0,R4-7,backup,0,0,3,2,[PLAYER] has the potential to go from backup to eventual starter if the situation is right.,False,1.39,v1,claude-opus-5-5
+McClendon Curtis,2023,G,end_turn,424,97,1687,0,R4-7,backup,0,0,2,3,is likely to be viewed as a Day 3 prospect requiring a plan and coaching to help him develop,False,1.72,v1,claude-opus-5-5
+Mekhi Garner,2023,CB,end_turn,367,105,1687,0,R4-7,backup,0,0,2,1,"teams might need to plug him into a Cover 2 scheme or try him at safety, where he can help support the run and cover tight ends.",False,4.52,v1,claude-opus-5-5
+O'Cyrus Torrence,2023,G,end_turn,483,93,1687,0,R2-3,eventual_starter,0,0,3,2,He projects as a future starter for downhill offenses who covet size over athleticism.,False,1.3,v1,claude-opus-5-5
+Peter Skoronski,2023,OT,end_turn,550,91,1687,0,R1,eventual_starter,0,0,4,2,he has the run-blocking talent to become an instant starter and a top-flight guard,False,1.88,v1,claude-opus-5-5
+Starling Thomas V,2023,CB,end_turn,463,79,1687,0,R4-7,backup,0,0,3,2,he’s talented enough to earn a roster spot,False,2.18,v1,claude-opus-5-5
+Titus Leo,2023,EDGE,end_turn,420,88,1687,0,UDFA,roster_bubble,0,0,2,2,[PLAYER] might need seasoning on a practice squad.,False,3.2,v1,claude-opus-5-5
+Will Anderson Jr.,2023,EDGE,end_turn,625,93,1687,0,R1,starter,0,0,5,3,"His traits, athleticism and production against high-level competition are indicators of a Pro Bowl future.",True,1.45,v1,claude-opus-5-5
+Will McDonald IV,2023,EDGE,end_turn,529,97,1687,0,R2-3,eventual_starter,0,0,4,2,winning play traits that will help him become a successful 3-4 outside linebacker and sack artist,False,1.88,v1,claude-opus-5-5
+Christian Gonzalez,2023,CB,end_turn,540,92,1687,0,R1,eventual_starter,0,0,4,2,the ingredients are already present to become a feared CB1 if he plays to his gifts,False,1.45,v1,claude-opus-5-5
+Darnell Wright,2023,OT,end_turn,484,113,1687,0,R2-3,eventual_starter,0,0,3,2,"There will be inconsistent outings, but [PLAYER] should develop into a decent starting tackle with the potential to kick inside if necessary.",False,1.93,v1,claude-opus-5-5
+Myles Murphy,2023,EDGE,end_turn,555,97,1687,0,R2-3,eventual_starter,0,0,3,1,"The traits and upside are there, but his skill level needs a boost to push the ceiling higher.",False,2.09,v1,claude-opus-5-5
+Deonte Banks,2023,CB,end_turn,488,101,1687,0,R1,eventual_starter,0,0,4,2,[PLAYER] has first-round traits and could become a CB1 if he can play with better discipline when challenged.,False,1.49,v1,claude-opus-5-5
+Jalen Carter,2023,DT,end_turn,633,93,1687,0,R1,starter,0,1,5,3,appears ready to step into the NFL and become a productive three-down talent with Pro Bowl potential,True,2.04,v1,claude-opus-5-5
+Broderick Jones,2023,OT,end_turn,500,93,1687,0,R2-3,eventual_starter,0,0,4,2,"the physical and athletic gifts allow for a projection as a good, long-time starter",False,1.39,v1,claude-opus-5-5
+C.J. Stroud,2023,QB,end_turn,679,92,1687,0,R1,eventual_starter,0,0,4,2,The most naturally accurate top-tier quarterback in the 2023 draft class.,True,1.83,v1,claude-opus-5-5
+Tyree Wilson,2023,EDGE,end_turn,642,107,1687,0,R2-3,eventual_starter,0,0,4,1,"He might not set the world on fire in Year 1, but the talent and vaulted ceiling will be easy to see soon enough.",False,2.19,v1,claude-opus-5-5
+Sydney Brown,2023,DB,end_turn,401,93,1687,0,UDFA,roster_bubble,0,0,2,2,will need to prove he can win in the box and shine on special teams to stick around in the league,False,1.43,v1,claude-opus-5-5
+Quan Martin,2023,CB,end_turn,432,89,1687,0,R2-3,eventual_starter,0,0,4,2,he has the potential to become an early contributor and a starter further down the road.,False,2.21,v1,claude-opus-5-5
+Tank Bigsby,2023,RB,end_turn,426,108,1687,0,R4-7,backup,0,0,3,2,could create an opportunity for teams to pair [PLAYER] with another back to form an effective tandem in a zone-scheme rushing attack,False,2.28,v1,claude-opus-5-5
+Tyjae Spears,2023,RB,end_turn,412,93,1687,0,R4-7,backup,1,0,2,1,"has the size of a change-of-pace back, but he needs to play with more consistent explosiveness",False,2.14,v1,claude-opus-5-5
+Derick Hall,2023,EDGE,end_turn,489,113,1687,0,R2-3,eventual_starter,0,0,3,1,"He is average against the run, exploitable in coverage and in need of a more diversified rush approach, but a true power rush usually translates in the NFL.",False,2.14,v1,claude-opus-5-5
+Will Levis,2023,QB,end_turn,724,106,1687,0,R2-3,eventual_starter,1,0,3,1,"talent is well worth an investment, but could require a talented quarterback coach and a patient plan to tighten up his mechanics",True,1.44,v1,claude-opus-5-5
+Isaiah Foskey,2023,EDGE,end_turn,492,96,1687,0,R2-3,eventual_starter,0,0,3,2,he’s going to keep getting better and has future starting potential as a 4-3 defensive end,False,1.44,v1,claude-opus-5-5
+DJ Turner II,2023,CB,end_turn,496,102,1687,0,R2-3,starter,0,0,4,2,has the tools and talent to become an early starter as a nickel corner capable of matching up with both shifty and speedy opponents,False,1.84,v1,claude-opus-5-5
+Andre Jones Jr.,2023,EDGE,end_turn,383,95,1687,0,UDFA,roster_bubble,0,0,3,2,flashes of rush potential that might create a roster opportunity after a year on a practice squad,False,1.78,v1,claude-opus-5-5
+Roschon Johnson,2023,RB,end_turn,390,111,1687,0,UDFA,roster_bubble,0,0,2,2,"[PLAYER] might be fighting off competition every year in camp, but his toughness and four-phase special teams value could give him an advantage.",False,1.44,v1,claude-opus-5-5
+Jaquelin Roy,2023,DT,end_turn,459,94,1687,0,R2-3,eventual_starter,0,0,4,2,[PLAYER] is an ascending talent with the potential to become a quality starter.,False,2.06,v1,claude-opus-5-5
+Malaesala Aumavae-Laulu,2023,OT,end_turn,380,91,1687,0,UDFA,roster_bubble,0,0,2,2,could make him a candidate for the practice squad as the jump-off point for his career,False,2.06,v1,claude-opus-5-5
+Dawand Jones,2023,OT,end_turn,550,92,1687,0,R2-3,eventual_starter,0,0,3,2,he should become a starting right tackle if he maintains the playing weight his team desires,False,2.06,v1,claude-opus-5-5
+Darius Rush,2023,CB,end_turn,326,101,1687,0,R4-7,backup,0,0,2,1,He will never have the short area foot quickness to mirror and match routes but has impressive ball skills to disrupt the catch,False,1.42,v1,claude-opus-5-5
+BJ Thompson,2023,EDGE,end_turn,343,83,1687,0,R4-7,backup,0,0,2,1,there is still a lot of physical and skill development that needs to take place,False,1.42,v1,claude-opus-5-5
+Nick Broeker,2023,G,end_turn,452,88,1687,0,R2-3,eventual_starter,0,0,3,2,has the talent to become a starting guard in a downhill run scheme,False,1.97,v1,claude-opus-5-5
+Montrae Braswell,2023,CB,end_turn,320,91,1687,0,UDFA,roster_bubble,0,0,2,2,He needs to become a more consistent cornerback if he wants to make a team.,False,1.97,v1,claude-opus-5-5
+T.J. Luther,2023,WR,end_turn,379,86,1687,0,R4-7,backup,0,0,3,3,[PLAYER] has a chance to be drafted on Day 3.,False,1.69,v1,claude-opus-5-5
+Jordan Jones,2023,CB,end_turn,360,99,1687,0,R4-7,eventual_starter,0,0,4,1,should follow him to the next level provided he can handle the step up in competition and finds a quality scheme fit,False,1.81,v1,claude-opus-5-5
+TJ Bass,2023,G,end_turn,446,86,1687,0,R4-7,backup,0,0,2,2,toughness and size will give him a leg up in a battle for a backup role.,False,1.81,v1,claude-opus-5-5
+Jacob Slade,2023,DT,end_turn,367,88,1687,0,R4-7,backup,0,0,3,2,He could become a solid NFL backup as a 4-3 nose tackle.,False,2.0,v1,claude-opus-5-5
+Malik Knowles,2023,WR,end_turn,388,86,1687,0,R4-7,backup,0,0,2,2,might be limited to a role as a potential WR5/6 with kick return value,False,1.53,v1,claude-opus-5-5
+Kahlef Hailassie,2023,CB,end_turn,388,89,1687,0,R4-7,backup,0,0,4,3,[PLAYER] has Day 3 potential and is a prospect to watch.,False,1.78,v1,claude-opus-5-5
+Raiqwon O'Neal,2023,OT,end_turn,283,103,1687,0,UDFA,roster_bubble,0,0,2,2,He plays with a desire to win on every snap but doesn’t appear to have the skill set to do so as a pro.,False,1.78,v1,claude-opus-5-5
