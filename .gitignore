@@ -10,3 +10,6 @@ __pycache__/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Answer key: real player names, keep out of the repo until labeling is done
+data/labels/label_items_key.csv
