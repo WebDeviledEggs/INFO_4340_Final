@@ -9,6 +9,7 @@ questions under the same decision rules.
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import os
 
 import anthropic
@@ -198,4 +199,91 @@ def run_standard(items: pd.DataFrame, out_csv, budget_left: float, workers: int 
     out_csv.parent.mkdir(parents=True, exist_ok=True)
     out.to_csv(out_csv, index=False)
     print(f"{len(new)} new calls, ${spent:.3f} this run; file total ${cost(out):.3f}")
+    return out
+
+
+# ---------------------------------------------------------------- Message Batches API (full run)
+# Batch pricing is 50% of standard. Measured on the 100-item eval run: $0.427 standard-priced
+# rows -> about $0.0021 per report at batch prices. Used only for the pre-submit budget check.
+BATCH_EST_PER_ITEM = 0.0022
+
+# Claude fields allowed as Model E features. character_flag is excluded: its kappa vs both partners
+# is 0.000 on the eval items (Claude gave 0 positives, partners 6 and 7), which fails the kappa >= 0.6
+# rule. The batch file still holds the column; it is not used in any model. See docs/claude_eval_results.md.
+CLAUDE_FEATURE_FIELDS = ["projected_tier", "role", "injury_flag", "tone"]
+
+
+def build_batch_requests(items: pd.DataFrame) -> tuple[list[dict], pd.DataFrame]:
+    """One Message Batches request per report. Returns (requests, manifest).
+
+    custom_id is r00000, r00001, ... (the API allows only letters, digits, _ and -, max 64 chars).
+    The manifest maps each custom_id to its row number in `items`, not to player names, so the
+    file written next to the results holds no real names. Results get the KEY columns back from
+    `items` when they are read.
+    """
+    items = items.reset_index(drop=True)
+    manifest = pd.DataFrame({"custom_id": [f"r{i:05d}" for i in range(len(items))],
+                             "row": range(len(items))})
+    requests = [{"custom_id": cid, "params": request_params(r.position, r.text_masked)}
+                for cid, r in zip(manifest.custom_id, items.itertuples(index=False))]
+    return requests, manifest
+
+
+def run_batch(items: pd.DataFrame, out_csv, budget_left: float, poll_seconds: int = 60) -> pd.DataFrame:
+    """Label `items` through the Message Batches API at batch prices.
+
+    Submits once. The batch id and manifest are saved next to out_csv, so if this process stops
+    while the batch is still processing, calling run_batch again reattaches to the same batch
+    instead of submitting (and paying) a second time.
+    """
+    import time
+
+    client = get_client()
+    out_csv = Path(out_csv)
+    out_csv.parent.mkdir(parents=True, exist_ok=True)
+    id_file = out_csv.with_suffix(".batch_id.txt")
+    manifest_file = out_csv.with_suffix(".manifest.csv")
+
+    if id_file.exists():
+        batch_id = id_file.read_text(encoding="utf-8").strip()
+        manifest = pd.read_csv(manifest_file)
+        print(f"reattaching to existing batch {batch_id}")
+    else:
+        est = BATCH_EST_PER_ITEM * len(items)
+        if est > budget_left:
+            raise RuntimeError(f"estimated ${est:.2f} for {len(items)} reports exceeds budget ${budget_left:.2f}")
+        requests, manifest = build_batch_requests(items)
+        manifest.to_csv(manifest_file, index=False)
+        batch = client.messages.batches.create(requests=requests)
+        batch_id = batch.id
+        id_file.write_text(batch_id, encoding="utf-8")   # saved before polling, so a crash can't lose it
+        print(f"submitted batch {batch_id}: {len(requests)} requests, est ${est:.2f} at batch prices")
+
+    while True:
+        status = client.messages.batches.retrieve(batch_id)
+        c = status.request_counts
+        print(f"{status.processing_status}: processing {c.processing}, succeeded {c.succeeded}, "
+              f"errored {c.errored}, expired {c.expired}, canceled {c.canceled}")
+        if status.processing_status == "ended":
+            break
+        time.sleep(poll_seconds)
+
+    by_id = manifest.set_index("custom_id")
+    items = items.reset_index(drop=True)
+    rows = []
+    for entry in client.messages.batches.results(batch_id):
+        key = {k: items.loc[by_id.loc[entry.custom_id, "row"], k] for k in C.KEY}
+        if entry.result.type == "succeeded":
+            row = parse_response(entry.result.message)
+        else:   # errored / expired / canceled: keep the row so the gap is visible in the file
+            row = {"stop_reason": entry.result.type, "input_tokens": 0, "output_tokens": 0,
+                   "cache_read_tokens": 0, "cache_write_tokens": 0}
+        rows.append({**key, **row, "latency_s": None, "prompt_version": PROMPT_VERSION,
+                     "model": MODEL, "batch_id": batch_id})
+
+    out = pd.DataFrame(rows)
+    out.to_csv(out_csv, index=False)
+    spent = cost(out, mode="batch")
+    print(f"{len(out)} results saved to {out_csv}; batch cost ${spent:.2f}; "
+          f"stop reasons: {out.stop_reason.value_counts().to_dict()}")
     return out

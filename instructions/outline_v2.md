@@ -1,8 +1,16 @@
 # Final Project Outline (v2, draft)
 
-## 1. Research question
+## 1. Research questions
 
-**Main question:** Do NFL.com scouting reports tell you anything about where a prospect gets drafted that the numbers don't already tell you?
+**Research questions (updated 2026-11-13):**
+1. Does NFL.com analyst scouting text help predict draft outcome beyond objective data and the analyst's own numeric grade?
+2. Do NFL.com scouting reports tell you anything about where a prospect gets drafted that the numbers don't already tell you?
+3. Does the NFL's ML model (`draftGrade`) outperform the NFL.com analysts (`grade`)?
+4. Does Claude's interpretation of the analyst reports provide any benefit to predictive power?
+
+**Old main question (superseded 2026-11-13, kept for reference):** Do NFL.com scouting reports tell you anything about where a prospect gets drafted that the numbers don't already tell you?
+
+**Old sub-questions (superseded 2026-11-13, kept for reference):**
 
 **Sub-questions:**
 1. How well can objective data alone predict draft outcome? (measurables, production and athleticism scores, position, school)

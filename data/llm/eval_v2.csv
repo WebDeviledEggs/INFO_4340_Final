@@ -1,0 +1,101 @@
+displayName,year,position,stop_reason,input_tokens,output_tokens,cache_read_tokens,cache_write_tokens,projected_tier,role,injury_flag,character_flag,tone,evidence,recognized,latency_s,prompt_version,model
+Anthony Lucas,2026,EDGE,end_turn,376,88,0,1569,UDFA,roster_bubble,0,0,1,there isn’t enough on tape to project [PLAYER] will stick on a roster.,False,2.25,v2,claude-opus-5-5
+Morice Norris Jr.,2024,CB,end_turn,319,92,1569,0,UDFA,roster_bubble,0,0,2,His coverage has too many holes and might prevent [PLAYER] from getting much of a pro look.,False,1.86,v2,claude-opus-5-5
+George Gumbs Jr.,2026,EDGE,end_turn,529,78,1569,0,R4-7,backup,0,0,3,his traits and mentality make him worthy of a Day 3 pick,False,1.36,v2,claude-opus-5-5
+Austin Jones,2024,RB,end_turn,367,84,1569,0,UDFA,roster_bubble,0,0,2,doesn’t appear to have the traits to help him stand out as a prospect,False,1.72,v2,claude-opus-5-5
+Christian Jones,2024,OT,end_turn,467,77,1569,0,UDFA,roster_bubble,0,0,2,his physical attributes give him a chance to stick around.,False,1.68,v2,claude-opus-5-5
+Malik Nabers,2024,WR,end_turn,609,86,1569,0,R1,eventual_starter,0,0,5,"has the profile to become a productive, high-volume target over all three levels as a potential WR1",False,1.36,v2,claude-opus-5-5
+Tyleik Williams,2025,DT,end_turn,482,104,1569,0,R2-3,eventual_starter,0,0,4,"The knock-back pop and ability to eat up runners in his general vicinity could help him become an impactful, run-stuffing three-technique.",False,1.48,v2,claude-opus-5-5
+Damien Martinez,2025,RB,end_turn,457,89,1569,0,R4-7,backup,0,0,4,could be best dialed in as a complementary banger capable of taking on the lion's share of the carries if needed,False,2.25,v2,claude-opus-5-5
+Caleb Williams,2024,QB,end_turn,764,105,1569,0,R1,eventual_starter,0,0,4,[PLAYER] is tremendously talented but often bites off too much responsibility and plays off-schedule. He has a good chance to hit new heights,True,1.8,v2,claude-opus-5-5
+Tyler Booker,2025,G,end_turn,452,90,1569,0,R2-3,eventual_starter,0,0,4,"The traits, football character and play strength will make him a good starter for a downhill, power-based attack.",False,1.41,v2,claude-opus-5-5
+Arvell Reese,2026,EDGE,end_turn,742,101,1569,0,R1,eventual_starter,0,0,4,"his rare blend of traits, explosiveness and versatility could become a perfect storm of chaos once a defense decides how to deploy him",True,1.49,v2,claude-opus-5-5
+Zion Young,2026,EDGE,end_turn,626,102,1569,0,R2-3,starter,0,0,3,[PLAYER]’s physical tools and rugged demeanor give him a chance to be an instant run-stopping upgrade with average rush.,False,1.47,v2,claude-opus-5-5
+Dylan Fairchild,2025,G,end_turn,382,86,1569,0,R4-7,eventual_starter,0,0,3,[PLAYER] could go in the middle rounds and eventually become a starter.,False,1.97,v2,claude-opus-5-5
+Josh Gesky,2026,G,end_turn,377,87,1569,0,R4-7,backup,0,0,2,"There are physical tools to work with, but [PLAYER] appears to have a limited ceiling.",False,1.42,v2,claude-opus-5-5
+Carson Steele,2024,RB,end_turn,369,96,1569,0,R4-7,backup,0,0,3,[PLAYER]’s value will be as a short-yardage specialist who can help wear down defenses in a downhill attack.,False,2.36,v2,claude-opus-5-5
+Keyshawn James-Newby,2026,EDGE,end_turn,481,84,1569,0,R4-7,backup,0,0,3,His high motor and disruptive ability should make him a solid sub-package edge rusher.,False,1.74,v2,claude-opus-5-5
+Ben Sinnott,2024,TE,end_turn,433,101,1569,0,R4-7,backup,0,0,3,[PLAYER] is a Day 3 talent but his NFL journey could be determined by whether he can get just a little bit better in all phases.,False,1.4,v2,claude-opus-5-5
+Jalen Royals,2025,WR,end_turn,463,79,1569,0,R4-7,backup,0,0,3,best suited for an offense that will value him as a possession target over the first two levels,False,2.61,v2,claude-opus-5-5
+Derrick Harmon,2025,DT,end_turn,526,83,1569,0,R2-3,starter,0,0,4,He will bring an instant dose of stinginess and toughness to any defense he joins.,False,1.53,v2,claude-opus-5-5
+Jason Marshall Jr.,2025,CB,end_turn,358,87,1569,0,R4-7,backup,0,0,2,The lack of urgency and determination [PLAYER] shows on tape could hurt his stock.,False,1.36,v2,claude-opus-5-5
+Tykee Smith,2024,SAF,end_turn,433,86,1569,0,R4-7,backup,0,0,3,will likely be typecast in a very narrow role as a sub-package safety with coverage limitations,False,1.58,v2,claude-opus-5-5
+Jeremiah Wright,2026,G,end_turn,494,86,1569,0,R4-7,backup,0,0,3,"he’s tough, strong and has pro-ready traits that should make him a Day 3 pick",False,1.22,v2,claude-opus-5-5
+Cam Jackson,2025,DT,end_turn,480,89,1569,0,R4-7,backup,0,0,3,his spot on a draft board will be relative to a team’s willingness to take a two-down player in need of polish,False,1.52,v2,claude-opus-5-5
+Xavier Watts,2025,SAF,end_turn,520,100,1569,0,R2-3,eventual_starter,0,0,4,"The tackling lowers his floor some, but I expect him to drift toward his ceiling because he’s so good on the back-end.",False,1.42,v2,claude-opus-5-5
+Wyatt Milum,2025,G,end_turn,538,96,1569,0,R2-3,eventual_starter,0,0,4,"His physical profile, play strength and football intelligence could have him ready as an early starter for gap-scheme teams.",False,2.04,v2,claude-opus-5-5
+Kyonte Hamilton,2025,DT,end_turn,399,92,1569,0,UDFA,roster_bubble,0,0,2,He’s a good athlete with room for more development but might not find the reps needed in camp to take that next step.,False,1.39,v2,claude-opus-5-5
+Mansoor Delane,2026,CB,end_turn,579,83,1569,0,R1,starter,1,0,5,[PLAYER] is one of the top cornerbacks in a CB-rich draft.,False,1.95,v2,claude-opus-5-5
+James Brockermeyer,2026,C,end_turn,508,88,1569,0,UDFA,roster_bubble,0,0,3,"he’s a one-position player, so he’ll have to fight hard for a roster spot.",False,1.62,v2,claude-opus-5-5
+Jackie Marshall,2026,DT,end_turn,455,91,1569,0,R4-7,backup,0,0,2,"If [PLAYER] can elevate his grit and urgency, he has a chance to become a rotational defender.",False,1.48,v2,claude-opus-5-5
+Shilo Sanders,2025,SAF,end_turn,378,106,1569,0,UDFA,roster_bubble,1,0,2,he will need to eliminate his inconsistencies with pursuit angles and shine on special teams to have a chance of sticking with an NFL squad,False,1.71,v2,claude-opus-5-5
+Ty Simpson,2026,QB,end_turn,783,106,1569,0,R2-3,eventual_starter,1,0,3,One-year starters rarely “boom” so he’ll need a patient staff and a clear developmental roadmap to fill in the missing pieces.,True,1.59,v2,claude-opus-5-5
+Kyler Baugh,2024,DT,end_turn,336,82,1569,0,UDFA,roster_bubble,0,0,2,lacking the mass and anchor to hold his spot against NFL force,False,1.27,v2,claude-opus-5-5
+Kayden McDonald,2026,DT,end_turn,507,92,1569,0,R2-3,eventual_starter,0,0,4,his money will be made by giving grief to centers and guards as an even-front nose tackle with starting potential,False,1.52,v2,claude-opus-5-5
+Caleb Lomu,2026,OT,end_turn,545,95,1569,0,R4-7,backup,0,0,3,[PLAYER] flashes but is still under construction. His play could improve rapidly with strength gains and additional coaching.,False,1.45,v2,claude-opus-5-5
+Luke Lachey,2025,TE,end_turn,437,92,1569,0,UDFA,roster_bubble,0,0,2,"Unless that happens, he’s likely to be fighting for a role as a TE3 or TE4.",False,1.73,v2,claude-opus-5-5
+Francis Mauigoa,2026,OT,end_turn,647,86,1569,0,R2-3,starter,0,0,4,He’ll be an early starter at right tackle but a move to guard could be on the table in the future.,False,1.67,v2,claude-opus-5-5
+Tory Horton,2025,WR,end_turn,451,77,1569,0,R4-7,backup,1,0,3,"If healthy, [PLAYER] has WR3 upside.",False,2.05,v2,claude-opus-5-5
+A.J. Haulcy,2026,SAF,end_turn,591,84,1569,0,R2-3,eventual_starter,0,0,4,He projects as a good NFL starter in a zone-heavy scheme.,False,1.32,v2,claude-opus-5-5
+Chris Brazzell II,2026,WR,end_turn,567,83,1569,0,R2-3,eventual_starter,0,0,4,Adds an immediate vertical dimension that can loosen defenses.,False,1.95,v2,claude-opus-5-5
+John Jiles,2024,WR,end_turn,331,103,1569,0,UDFA,roster_bubble,0,0,2,will need to become more aggressive and consistently competitive to prove he can win possession catches and rise to the challenge of much stiffer competition,False,1.29,v2,claude-opus-5-5
+Isaac Gifford,2025,SAF,end_turn,402,77,1569,0,UDFA,roster_bubble,0,0,2,will likely have to shine on special teams to make a roster,False,1.71,v2,claude-opus-5-5
+Cam Ward,2025,QB,end_turn,905,342,1569,0,R2-3,eventual_starter,0,0,3,With a patient plan and a nurturing offensive coordinator... [PLAYER] could become a good NFL starter inside of his first contract.,True,3.82,v2,claude-opus-5-5
+Zach Heins,2024,TE,end_turn,485,83,1569,0,R4-7,backup,0,0,3,he will earn a roster spot based on his ability as a well-rounded run blocker.,False,1.24,v2,claude-opus-5-5
+Daniel Sobkowicz,2026,WR,end_turn,346,77,1569,0,R4-7,roster_bubble,0,0,2,give him a chance of being drafted late on Day 3,False,1.67,v2,claude-opus-5-5
+Clay Webb,2025,C,end_turn,379,85,1569,0,R4-7,backup,0,0,3,plays with a level of control and confidence that gives him a chance to compete for NFL snaps,False,1.52,v2,claude-opus-5-5
+Trey Knox,2024,TE,end_turn,452,102,1569,0,R4-7,backup,0,0,3,"His timed speed could hurt his draft stock, but teams might be pleasantly surprised with [PLAYER]’s catch/block potential.",False,1.67,v2,claude-opus-5-5
+R Mason Thomas,2026,EDGE,end_turn,569,78,1569,0,R2-3,eventual_starter,1,0,4,the potential to earn a starting job within his first two seasons,False,1.32,v2,claude-opus-5-5
+Khalil Dinkins,2026,TE,end_turn,452,73,1569,0,R4-7,backup,0,0,3,He projects as a Day 3 pick with upside.,False,1.28,v2,claude-opus-5-5
+Ephesians Prysock,2026,CB,end_turn,434,96,1569,0,R4-7,backup,0,0,2,"lack of anticipatory aggression and short-area suddenness fail to generate enough on-ball production, which limits his upside.",False,1.29,v2,claude-opus-5-5
+Colston Loveland,2025,TE,end_turn,627,90,1569,0,R1,eventual_starter,1,0,5,creates a high ceiling with the opportunity to become a high-volume target and future Pro Bowler,False,1.29,v2,claude-opus-5-5
+Jeremy Flax,2024,OT,end_turn,395,81,1569,0,R4-7,roster_bubble,0,0,2,he might have enough size and potential to warrant a late look in the draft,False,2.18,v2,claude-opus-5-5
+Sundiata Anderson,2024,EDGE,end_turn,458,105,1569,0,UDFA,roster_bubble,0,0,2,[PLAYER] could be a late draft-and-stash candidate or an undrafted signee as a developmental prospect on the practice squad.,False,1.32,v2,claude-opus-5-5
+Dallen Bentley,2026,TE,end_turn,432,109,1569,0,R4-7,backup,0,0,2,[PLAYER]’s NFL future could depend on his ability to play with more tenacity and technique as a run blocker since his catch production from 2025 might not translate.,False,1.25,v2,claude-opus-5-5
+Ja'Kobi Lane,2026,WR,end_turn,395,83,1569,0,R4-7,backup,0,0,3,"has the confidence and talent to become a productive pro and red-zone specialist, though.",False,2.29,v2,claude-opus-5-5
+Jalen Milroe,2025,QB,end_turn,737,94,1569,0,R4-7,backup,0,0,2,his 2024 regression makes it harder to project success from the pocket at a high enough rate to become a capable NFL starter,True,1.73,v2,claude-opus-5-5
+Spencer Fano,2026,OT,end_turn,685,93,1569,0,R2-3,eventual_starter,0,0,3,[PLAYER]’s level of NFL success might be tied to scheme fit and individual matchups.,False,1.8,v2,claude-opus-5-5
+Dominick Puni,2024,G,end_turn,454,94,1569,0,R4-7,eventual_starter,0,0,3,[PLAYER] appears to have middle-round value but future starting talent for a move-oriented scheme.,False,1.72,v2,claude-opus-5-5
+Byron Murphy II,2024,DT,end_turn,491,82,1569,0,R2-3,eventual_starter,0,0,4,tools and talent to become a productive three-down defender in the right scheme,False,1.22,v2,claude-opus-5-5
+Caelen Carson,2024,CB,end_turn,545,74,1569,0,R4-7,backup,1,0,3,there is enough in place to project him as an eventual CB3,False,2.07,v2,claude-opus-5-5
+Shemar Turner,2025,DT,end_turn,439,92,1569,0,R2-3,eventual_starter,0,0,4,His athleticism and chase quickness will see him in or near the pile with some frequency as a future starter.,False,1.21,v2,claude-opus-5-5
+Jarius Monroe,2024,CB,end_turn,436,80,1569,0,UDFA,roster_bubble,0,0,2,he has the toughness for a team to give him a look as a down safety,False,1.26,v2,claude-opus-5-5
+Josh Simmons,2025,OT,end_turn,547,94,1569,0,R2-3,eventual_starter,1,0,4,he might need a year to continue honing his craft in that area before he is ready to take on NFL pocket hunters,False,1.29,v2,claude-opus-5-5
+Sean Martin,2025,EDGE,end_turn,373,87,1569,0,R4-7,backup,0,0,2,He has developmental traits but is more a project than prospect considering his relative lack of impact on tape.,False,1.32,v2,claude-opus-5-5
+A.J. Woods,2024,CB,end_turn,375,100,1569,0,UDFA,roster_bubble,0,0,2,"his athletic ability appears to be good enough for consideration, but there might be too many holes for defensive coaches to poke in his game",False,1.78,v2,claude-opus-5-5
+Emmanuel McNeil-Warren,2026,SAF,end_turn,517,85,1569,0,R4-7,backup,0,0,3,[PLAYER] might be pigeon-holed schematically but he’s good at his job.,False,1.57,v2,claude-opus-5-5
+Corey Kiner,2025,RB,end_turn,437,78,1569,0,R4-7,backup,0,0,3,lacks the burst and athleticism to survive behind a subpar line,False,1.61,v2,claude-opus-5-5
+Tetairoa McMillan,2025,WR,end_turn,509,100,1569,0,R2-3,eventual_starter,0,0,4,"His elite ball skills set him apart, though, providing a higher floor as a “Z” option with mismatch value in the slot.",False,1.91,v2,claude-opus-5-5
+Ozzy Trapilo,2025,OT,end_turn,585,98,1569,0,R2-3,backup,0,0,3,[PLAYER] could operate as a swing tackle early on but his potential in pass protection gives him a good chance to become a starter.,False,1.46,v2,claude-opus-5-5
+Joe Fagnano,2026,QB,end_turn,445,97,1569,0,UDFA,roster_bubble,0,0,2,"lacks above-average mobility, accuracy or arm talent to build around, so a practice squad might be his ceiling",False,1.79,v2,claude-opus-5-5
+Graham Barton,2024,C,end_turn,540,81,1569,0,R1,starter,0,0,5,exactly what teams will be looking for from an early starter with Pro Bowl potential,False,1.93,v2,claude-opus-5-5
+Tate Ratledge,2025,G,end_turn,458,93,1569,0,R2-3,eventual_starter,0,0,4,[PLAYER]'s mentality and toughness should help him become a solid starter fairly quickly.,False,1.93,v2,claude-opus-5-5
+Justin Joly,2026,TE,end_turn,435,84,1569,0,R4-7,backup,0,0,3,[PLAYER] has the ability to contribute as a moveable “F” tight end.,False,1.73,v2,claude-opus-5-5
+Christian Mahogany,2024,G,end_turn,477,75,1569,0,R4-7,backup,0,0,3,He has a chance to be a backup with upside early in his career.,False,1.94,v2,claude-opus-5-5
+Devin Neal,2025,RB,end_turn,478,80,1569,0,R4-7,backup,0,0,3,[PLAYER] has the ability to develop into a backup three-down back.,False,1.41,v2,claude-opus-5-5
+Darrell Jackson Jr.,2026,DT,end_turn,491,100,1569,0,R4-7,backup,0,0,3,"The tape is uneven with a floor of average backup, but [PLAYER]'s size and length could be considered unmined gold by some teams.",False,1.23,v2,claude-opus-5-5
+Josh Cuevas,2026,TE,end_turn,499,86,1569,0,R4-7,eventual_starter,0,0,4,He’s a well-rounded talent with the demeanor to become a productive pro.,False,1.29,v2,claude-opus-5-5
+J'Mari Taylor,2026,RB,end_turn,490,90,1569,0,R4-7,backup,0,0,3,"should create an opportunity as a complementary ""thunder"" back capable of handling a three-down backup role.",False,1.41,v2,claude-opus-5-5
+Jacob Cowing,2024,WR,end_turn,483,105,1569,0,UDFA,roster_bubble,0,0,2,"needs to limit drops, improve as a route-runner and display some punt-return talent to give himself the best chance of sticking on an NFL roster",False,2.08,v2,claude-opus-5-5
+Ryan Watts,2024,CB,end_turn,453,74,1569,0,R4-7,backup,0,0,3,chances of becoming a backup safety with core special teams value,False,1.22,v2,claude-opus-5-5
+Blake Miller,2026,OT,end_turn,606,122,1569,0,R4-7,eventual_starter,0,0,3,"He will encounter difficulties at the next level without better pad level, core strength and cleaner technique. If he tightens up in those areas, [PLAYER] can become a solid NFL right tackle.",False,1.82,v2,claude-opus-5-5
+Omarion Hampton,2025,RB,end_turn,526,88,1569,0,R2-3,eventual_starter,1,0,4,[PLAYER] is a tone-setting future starter who can handle a heavy workload,False,1.7,v2,claude-opus-5-5
+Christian Haynes,2024,G,end_turn,456,82,1569,0,R4-7,eventual_starter,0,0,4,he might outplay his draft slotting and become a solid NFL starter,False,1.82,v2,claude-opus-5-5
+Savion Williams,2025,WR,end_turn,539,86,1569,0,R2-3,backup,0,0,3,Developmental wideout who offers an alluring blend of physical gifts and untapped potential.,False,1.94,v2,claude-opus-5-5
+Joe Alt,2024,OT,end_turn,698,357,1569,0,R1,starter,0,0,4,[PLAYER] clearly has the talent to become a Day 1 starter on the left side,False,4.38,v2,claude-opus-5-5
+Sonny Styles,2026,LB,end_turn,553,106,1569,0,R2-3,eventual_starter,0,0,4,[PLAYER] is an emerging player with the traits and versatility to garner longer looks by NFL evaluators. He could see his stock soar,False,1.95,v2,claude-opus-5-5
+Jager Burton,2026,C,end_turn,417,89,1569,0,R4-7,backup,0,0,3,best fit will be with a zone-heavy running game as a late draft pick or undrafted free agent signee,False,1.87,v2,claude-opus-5-5
+Dillon Thieneman,2026,SAF,end_turn,550,94,1569,0,R2-3,eventual_starter,0,0,4,[PLAYER] checks important boxes for teams looking to add versatile playmakers in the secondary.,False,1.29,v2,claude-opus-5-5
+Gracen Halton,2026,DT,end_turn,474,100,1569,0,R4-7,backup,0,0,3,"An undersized 3-technique with disruptive attributes, [PLAYER] is best suited for a rotational role in a movement-based front.",False,1.45,v2,claude-opus-5-5
+Quinyon Mitchell,2024,CB,end_turn,477,102,1569,0,R2-3,eventual_starter,0,0,4,"[PLAYER]'s traits, play demeanor and special-teams potential should make him attractive to teams in the market for CB help.",False,1.5,v2,claude-opus-5-5
+Ladd McConkey,2024,WR,end_turn,486,82,1569,0,R2-3,eventual_starter,1,0,4,could make him a productive slot receiver as a Day 2 pickup,False,1.35,v2,claude-opus-5-5
+Donovan Jackson,2025,G,end_turn,527,94,1569,0,R2-3,eventual_starter,0,0,4,"Overall, [PLAYER] has the measurables, power and movement for any scheme as a starting guard.",False,1.7,v2,claude-opus-5-5
+Josiah Trotter,2026,LB,end_turn,572,95,1569,0,R2-3,eventual_starter,0,0,4,"make him easy to project as a productive, long-time starter in the middle but a defense might need to protect him in coverage",False,1.77,v2,claude-opus-5-5
+Bradyn Swinson,2025,EDGE,end_turn,527,107,1569,0,R2-3,eventual_starter,0,0,4,"[PLAYER] is an ascending talent with the demeanor, traits and talent to become a good starter as a 3-4 rush linebacker.",False,2.05,v2,claude-opus-5-5
+Ja'Corey Brooks,2025,WR,end_turn,397,85,1569,0,UDFA,roster_bubble,0,0,2,[PLAYER] might have to fight for a back-end spot on a roster.,False,1.39,v2,claude-opus-5-5
+Chop Robinson,2024,EDGE,end_turn,567,88,1569,0,R1,starter,0,0,5,[PLAYER]’s electric athletic traits alone should give him a floor as a good NFL starter.,False,2.22,v2,claude-opus-5-5
+Trey Amos,2025,CB,end_turn,555,77,1569,0,R2-3,eventual_starter,0,0,4,he has the goods to become a solid starting outside corner,False,1.88,v2,claude-opus-5-5
+Marques Cox,2025,OT,end_turn,363,100,1569,0,UDFA,roster_bubble,0,0,2,"Teams could consider bumping him inside to guard, but he also lacks the core strength to mix it up against defensive tackles.",False,1.39,v2,claude-opus-5-5
+Ashton Gillotte,2025,EDGE,end_turn,474,76,1569,0,R4-7,backup,0,0,3,Will have a hard time beating NFL tackles with speed.,False,1.87,v2,claude-opus-5-5
+Lee Hunter,2026,DT,end_turn,468,85,1569,0,R4-7,backup,0,0,3,projects as an early down space-eater who can make interior offensive linemen work for their gaps.,False,1.39,v2,claude-opus-5-5
+DJ Glaze,2024,OT,end_turn,445,96,1569,0,R4-7,backup,0,0,3,Swing tackle prospect with some promising NFL traits but tape that comes up lacking against some of the better competition he faced.,False,1.76,v2,claude-opus-5-5
