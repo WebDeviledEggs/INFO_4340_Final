@@ -37,7 +37,7 @@ These were checked against the report text and match it word for word.
 | E010 | "Prototypical size and girth with elite length and massive hands" | Body-size theme |
 | E093 | "Late bloomer with big hands" | Body-size theme. Also the start of the overview. |
 | E027 | "Smooth hips and efficient footwork" | Not about body size. A cornerback's movement, from the overview. Keep it in its own section if the slide is about bodies. |
-
+|xxx| Elite wiggle triggered by fluid hips
 ## Added later
 
 The user will send more favorites after finishing the eval labels. Add those here once they arrive.
