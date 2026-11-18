@@ -45,14 +45,17 @@ def test_frame() -> pd.DataFrame:
 
 
 # ---------------------------------------------------------------- section 10: subgroups
-def subgroup_tables(t: pd.DataFrame) -> dict:
-    err = (t.pred_D != t.tier_code)
+def subgroup_tables(t: pd.DataFrame, pred_col: str = "pred_E") -> dict:
+    """Subgroup error tables for one model. Model E (the AI-using workflow) is the primary check;
+    Model D is kept as a comparison."""
+    pred = t[pred_col]
+    err = (pred != t.tier_code)
     out = {}
     for col in ["positionGroup", "power5", "year_str", "grade_band"]:
         tab = E.subgroup_errors(err, t[col].astype(str))
         out[col] = tab
         out[f"chi2 {col}"] = E.chi_square_errors(err, t[col].astype(str))
-    odds = E.equalized_odds_recall(pd.Series(t.tier_code.values), pd.Series(t.pred_D.values),
+    odds = E.equalized_odds_recall(pd.Series(t.tier_code.values), pd.Series(pred.values),
                                    pd.Series(t.positionGroup.astype(str).values))
     out["equalized odds (positionGroup)"] = odds
     return out
@@ -108,7 +111,8 @@ def main() -> None:
     t = test_frame()
     # the grade-band tercile edges come from the test split itself; report them
     edges = pd.qcut(t.grade_pct, 3, retbins=True)[1]
-    st = subgroup_tables(t)
+    st = subgroup_tables(t, "pred_E")
+    st_d = subgroup_tables(t, "pred_D")
     cost = cost_table()
     bt = backtest_rules(t)
 
@@ -116,13 +120,16 @@ def main() -> None:
              f"Test split n = {len(t)}. Model D errors = {int((t.pred_D != t.tier_code).sum())} "
              f"({(t.pred_D != t.tier_code).mean():.3f}). Grade bands are tertiles of grade_pct on the test "
              f"split, cut points {np.round(edges, 3).tolist()}.", "",
-             "## 10. Subgroup error rates (Model D, test)", ""]
-    for key, val in st.items():
-        lines += [f"### {key}", ""]
-        if isinstance(val, dict):
-            lines += [f"chi-square p = {val['p']:.3f}, dof {val['dof']}, min expected {val['min_expected']:.1f}", ""]
-        else:
-            lines += [val.round(3).to_markdown(), ""]
+             f"## 10. Subgroup error rates (Model E, test; Model D for comparison)", "",
+             f"Model E errors = {int((t.pred_E != t.tier_code).sum())} ({(t.pred_E != t.tier_code).mean():.3f}).", ""]
+    for label, table in [("Model E", st), ("Model D (comparison)", st_d)]:
+        lines += [f"### {label}", ""]
+        for key, val in table.items():
+            lines += [f"#### {key}", ""]
+            if isinstance(val, dict):
+                lines += [f"chi-square p = {val['p']:.3f}, dof {val['dof']}, min expected {val['min_expected']:.1f}", ""]
+            else:
+                lines += [val.round(3).to_markdown(), ""]
     lines += ["## 11. Cost", "", cost.to_markdown(index=False), "",
               "## 12. Governance back-tests (review rules vs Model D test errors)", "",
               bt.to_markdown(index=False), ""]
