@@ -11389,6 +11389,311 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6356a71e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.2-Prompt-pilot-(2023-validation,-52-items)">7.2 Prompt pilot (2023 validation, 52 items)<a class="anchor-link" href="#7.2-Prompt-pilot-(2023-validation,-52-items)">¶</a></h3><p>Prompt v1 included a confidence field. The codebook change (v1.1) removed it, and the prompt was revised to v2 and frozen. Pilot rules: at most three rounds, systematic fixes only, and the frozen v2 was then used for the eval and batch runs.</p>
+<p>v2 parsed 52 of 52 items. Against v1 on the same items, tier and role agree on 96% of items and tone has QWK 0.94. The pilot cost $0.22 at standard prices.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=90f8aa93">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.3-Full-run-(analysis-set)">7.3 Full run (analysis set)<a class="anchor-link" href="#7.3-Full-run-(analysis-set)">¶</a></h3><p>The Message Batches API ran all 5,667 analysis reports with prompt v2 (<code>src/llm.py</code> <code>run_batch</code>). All 5,667 succeeded and the batch cost $11.62 at batch prices, below the $12.47 estimate. On the 100 eval items (E001–E100), the batch labels match the standard-API eval run on tier 94%, role 93%, tone 95%, injury 100%, character flag 100% and recognized 97%.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9cc106dd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.4-Human-agreement-and-the-governance-rule">7.4 Human agreement and the governance rule<a class="anchor-link" href="#7.4-Human-agreement-and-the-governance-rule">¶</a></h3><p>Full tables are in <code>docs/claude_eval_results.md</code>. On the 100 eval items:</p>
+<ul>
+<li>Human vs human (partner 1 vs partner 2): tier kappa 0.907, role 0.883, tone 0.819. Human MDD for tier is 0.589.</li>
+<li>Claude vs humans: tier 0.735 and 0.795, role 0.758 and 0.834, tone 0.711 and 0.711. Injury 0.878 and 1.000.</li>
+<li><code>character_flag</code>: 0.000 for Claude against both partners. Claude gave 0 positives; the partners gave 6 and 7. This fails the κ ≥ 0.6 rule, so the flag is dropped from Model E (section 8).</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=f5113b5e">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src</span><span class="w"> </span><span class="kn">import</span> <span class="n">llm_checks</span> <span class="k">as</span> <span class="n">LC</span>
+
+<span class="n">LC</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>   <span class="c1"># writes docs/llm_checks.md with the 7.2, 7.3, 7.5 and 7.7 tables</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre># LLM checks (notebook section 7.2-7.7)
+
+## 7.2 Prompt pilot (2023 validation, 52 items)
+
+- items: 52
+- v2 end_turn: 52
+- tier agreement v1 vs v2: 0.962
+- role agreement v1 vs v2: 0.962
+- tone QWK v1 vs v2: 0.942
+- pilot cost v1 ($): 0.22
+- pilot cost v2 ($): 0.22
+
+## 7.3 Full run (analysis set)
+
+- reports: 5667
+- stop reasons: {'end_turn': 5667}
+- batch cost ($): 11.62
+- batch id: msgbatch_01EjcjEL4G9tvg8AcmCtiyBb
+- tier counts: {'R4-7': 2988, 'UDFA': 1503, 'R2-3': 937, 'R1': 239}
+- role counts: {'backup': 2637, 'roster_bubble': 1823, 'eventual_starter': 1029, 'starter': 178}
+- injury_flag rate: 0.14
+- character_flag rate (not used): 0.056
+- recognized rate: 0.057
+
+## 7.5 Contamination check: recognized vs not
+
+| subset     | recognized   |    n |   tier accuracy vs real tier |
+|:-----------|:-------------|-----:|-----------------------------:|
+| all        | True         |  322 |                        0.543 |
+| all        | False        | 5345 |                        0.527 |
+| test split | True         |   40 |                        0.6   |
+| test split | False        | 1262 |                        0.536 |
+
+## 7.6 Self-consistency
+
+Not run. A second pass over the 100 eval items would cost about $0.22 at batch prices and would show how stable Claude's labels are. Run it only if the write-up needs it.
+
+## 7.7 Saved outputs
+
+| file                                    |   rows | exists   | holds                                                   |
+|:----------------------------------------|-------:|:---------|:--------------------------------------------------------|
+| data/llm/pilot_items.csv                |     52 | True     | 52 pilot reports (2023 validation), masked text         |
+| data/llm/pilot_v1.csv                   |     52 | True     | pilot run, prompt v1 (confidence field, retired)        |
+| data/llm/pilot_v2.csv                   |     52 | True     | pilot run, prompt v2 (frozen)                           |
+| data/llm/eval_v2.csv                    |    100 | True     | 100 eval reports, prompt v2 (standard API)              |
+| data/llm/batch_v2_analysis.csv          |   5667 | True     | 5,667 analysis reports, prompt v2 (Message Batches API) |
+| data/llm/batch_v2_analysis.manifest.csv |   5667 | True     | batch request IDs mapped to row numbers (no names)      |
+| data/llm/batch_v2_analysis.batch_id.txt |    nan | True     | batch ID for reattaching to the run                     |
+
+
+written: C:\Users\olivi\OneDrive - University of Denver\INFO 4340\Final Project\INFO_4340_Final\docs\llm_checks.md
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=14e68347">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.5-Contamination-check:-does-Claude-do-better-on-players-it-recognizes?">7.5 Contamination check: does Claude do better on players it recognizes?<a class="anchor-link" href="#7.5-Contamination-check:-does-Claude-do-better-on-players-it-recognizes?">¶</a></h3><p>Claude sets <code>recognized</code> to true when it thinks it knows the player. If it used outside knowledge of the draft, recognized players should be labeled more accurately against the real tier.</p>
+<table>
+<thead>
+<tr>
+<th>subset</th>
+<th>recognized</th>
+<th>n</th>
+<th>tier accuracy vs real tier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>all analysis</td>
+<td>yes</td>
+<td>322</td>
+<td>0.543</td>
+</tr>
+<tr>
+<td>all analysis</td>
+<td>no</td>
+<td>5,345</td>
+<td>0.527</td>
+</tr>
+<tr>
+<td>test split</td>
+<td>yes</td>
+<td>40</td>
+<td>0.600</td>
+</tr>
+<tr>
+<td>test split</td>
+<td>no</td>
+<td>1,262</td>
+<td>0.536</td>
+</tr>
+</tbody>
+</table>
+<p>On the full set the gap is 0.016. On the test split it is 0.064, but the recognized group has only 40 players, so that gap is within noise. The check does not show that recognition helps Claude, but it cannot rule out a small effect. The write-up should say this and cite the masking leaks in <code>docs/masking_limitations.md</code> as the main contamination risk.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6e4620c7">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.6-Self-consistency">7.6 Self-consistency<a class="anchor-link" href="#7.6-Self-consistency">¶</a></h3><p><strong>Not run.</strong> A second pass over the 100 eval items would show how stable Claude's labels are from run to run. It would cost about $0.22 at batch prices. We have not run it because the eval and batch results are already complete, and the extra run would only be needed if the write-up requires a stability figure.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bdf727c0">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="7.7-Saved-outputs">7.7 Saved outputs<a class="anchor-link" href="#7.7-Saved-outputs">¶</a></h3><p>Everything the LLM step writes is in <code>data/llm/</code> and is listed with row counts in <code>docs/llm_checks.md</code>. The batch manifest holds request IDs and row numbers only, not player names. <code>data/llm/</code> is not gitignored, and the answer key <code>data/labels/label_items_key.csv</code> is still gitignored.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cdf56218">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="8.-Model-E:-Claude-fields,-and-research-questions-3-and-4">8. Model E: Claude fields, and research questions 3 and 4<a class="anchor-link" href="#8.-Model-E:-Claude-fields,-and-research-questions-3-and-4">¶</a></h2><p>Model E = objective data + analyst grade + the Claude fields from the batch run (<code>data/llm/batch_v2_analysis.csv</code>, prompt v2, 5,667 analysis reports): <code>projected_tier</code>, <code>role</code>, <code>injury_flag</code>, <code>tone</code>. <code>character_flag</code> is <strong>excluded</strong>: its kappa against both partners is 0.000 on the eval items, which fails the kappa &gt;= 0.6 rule (<code>docs/claude_eval_results.md</code>).</p>
+<p>Protocol is the same as section 9: <code>C</code> is chosen on the 2023 validation split, the 2024-26 test split is scored once, and paired bootstrap CIs use 1,000 resamples. The 2014 holdout is not used here.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=e5cdcee5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src</span><span class="w"> </span><span class="kn">import</span> <span class="n">final_comparison</span> <span class="k">as</span> <span class="n">FC</span>
+
+<span class="n">FC</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>   <span class="c1"># prints the tables and writes docs/final_model_results.md</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre># Final model comparison (notebook section 8)
+
+Protocol: C chosen on the 2023 validation split; 2024–26 test split scored once; paired bootstrap, 1000 resamples. The 2014 holdout is not used.
+
+## Coverage of draftGrade (analysis rows)
+
+4071 of 5667 analysis rows have a draftGrade. Share with a draftGrade by class year:
+
+|                       |   2014 |   2015 |   2016 |   2017 |   2018 |   2019 |   2020 |   2021 |   2022 |   2023 |   2024 |   2025 |   2026 |
+|:----------------------|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|-------:|
+| share_with_draftGrade |   0.72 |   0.81 |   0.83 |    0.8 |   0.69 |   0.67 |   0.66 |    0.7 |   0.69 |   0.65 |   0.69 |   0.75 |   0.76 |
+
+## Q3: draftGrade vs grade (test rows with both scores, n = 950)
+
+| model                             |    C |   macro_f1 |   qwk |   accuracy |
+|:----------------------------------|-----:|-----------:|------:|-----------:|
+| A objective                       |  0.1 |      0.536 | 0.624 |      0.524 |
+| B objective + grade               | 10   |      0.633 | 0.751 |      0.608 |
+| N objective + draftGrade          |  1   |      0.562 | 0.697 |      0.539 |
+| BN objective + grade + draftGrade |  0.1 |      0.616 | 0.742 |      0.587 |
+| grade alone                       |  0.1 |      0.582 | 0.735 |      0.558 |
+| draftGrade alone                  | 10   |      0.559 | 0.697 |      0.545 |
+
+Paired differences (test, macro-F1):
+
+| comparison                                  |   delta |   ci_low |   ci_high |
+|:--------------------------------------------|--------:|---------:|----------:|
+| draftGrade alone − grade alone              |  -0.023 |   -0.063 |     0.015 |
+| N − B (draftGrade vs grade, with objective) |  -0.071 |   -0.105 |    -0.038 |
+| BN − B (add draftGrade to grade)            |  -0.017 |   -0.045 |     0.009 |
+
+## Q4: Claude fields and text model (all analysis rows, test n = 1302)
+
+| model   |    C |   macro_f1 |   qwk |   accuracy |
+|:--------|-----:|-----------:|------:|-----------:|
+| B       | 10   |      0.662 | 0.788 |      0.657 |
+| E       |  0.1 |      0.663 | 0.783 |      0.657 |
+| D       |  1   |      0.661 | 0.785 |      0.653 |
+
+Paired differences (test, macro-F1):
+
+| comparison                                     |   delta |   ci_low |   ci_high |
+|:-----------------------------------------------|--------:|---------:|----------:|
+| E − B (add Claude fields to objective + grade) |   0.001 |   -0.014 |     0.017 |
+| D − B (add text model to objective + grade)    |  -0.001 |   -0.013 |     0.012 |
+| E − D (Claude fields vs text model)            |   0.002 |   -0.014 |     0.019 |
+
+
+written: C:\Users\olivi\OneDrive - University of Denver\INFO 4340\Final Project\INFO_4340_Final\docs\final_model_results.md
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=1e33eff5">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="8.1-Results-(test-split,-from-docs/final_model_results.md)">8.1 Results (test split, from <code>docs/final_model_results.md</code>)<a class="anchor-link" href="#8.1-Results-(test-split,-from-docs/final_model_results.md)">¶</a></h3><p><strong>Q3: does the NFL model score (draftGrade) beat the analysts' grade?</strong> No. On the 950 test prospects with both scores:</p>
+<ul>
+<li>Grade alone 0.582 macro-F1, draftGrade alone 0.559. Difference -0.023 (95% CI -0.063 to +0.015).</li>
+<li>Adding draftGrade to objective + grade: -0.017 (CI -0.045 to +0.009).</li>
+<li>Objective + draftGrade without grade is worse than objective + grade: -0.071 (CI -0.105 to -0.038).</li>
+</ul>
+<p><strong>Q4: does Claude's reading add predictive power?</strong> Not detectably. On the 1,302 test prospects:</p>
+<ul>
+<li>Objective + grade + Claude fields (E) vs objective + grade (B): +0.001 macro-F1 (CI -0.014 to +0.017).</li>
+<li>Objective + grade + text model (D) vs B: -0.001 (CI -0.013 to +0.012).</li>
+</ul>
+<p>Model B's test score here (0.662) is computed with this module's C grid. Check it against the B row in section 9.1 before quoting either number; they should agree if both use the same grid.</p>
+<p><strong>Caveats for the write-up:</strong></p>
+<ul>
+<li><code>draftGrade</code> is missing for 1,596 of the 5,667 analysis rows (coverage 65-83% by class year), so the Q3 comparison covers only the prospects that have it.</li>
+<li>The CIs exclude gains above roughly 0.02 for Claude, so smaller effects cannot be ruled out.</li>
+<li>The character flag is excluded because it fails the kappa rule, not because of a finding about the text.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=bd7a7346">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -11396,9 +11701,9 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <blockquote>
-<p><strong>7.2–7.7</strong> (prompt and pilot, full masked run, human agreement and kappa, contamination check, self-consistency, saved outputs) and <strong>8. Model E</strong> are added once labels and LLM outputs exist.</p>
+<p><strong>7.2–7.7</strong> (prompt and pilot, full masked run, human agreement and kappa, contamination check, self-consistency, saved outputs) and <strong>8. Model E</strong> is now in section 8. 7.2-7.7 are in section 7.</p>
 </blockquote>
-<h2 id="9.-Test-set-comparison-(2024%E2%80%9326-classes)">9. Test-set comparison (2024–26 classes)<a class="anchor-link" href="#9.-Test-set-comparison-(2024%E2%80%9326-classes)">¶</a></h2><p>Every model is refit on the training classes with its chosen <code>C</code> and scored <strong>once</strong> on the test classes. 95% CIs come from 1,000 bootstrap resamples of test prospects. Deltas use <strong>paired</strong> resamples (the same prospects for both models). Model E joins this table after section 8.</p>
+<h2 id="9.-Test-set-comparison-(2024%E2%80%9326-classes)">9. Test-set comparison (2024–26 classes)<a class="anchor-link" href="#9.-Test-set-comparison-(2024%E2%80%9326-classes)">¶</a></h2><p>Every model is refit on the training classes with its chosen <code>C</code> and scored <strong>once</strong> on the test classes. 95% CIs come from 1,000 bootstrap resamples of test prospects. Deltas use <strong>paired</strong> resamples (the same prospects for both models). Model E is compared in section 8, not in this table.</p>
 <h3 id="9.1-Tier-models">9.1 Tier models<a class="anchor-link" href="#9.1-Tier-models">¶</a></h3>
 </div>
 </div>
@@ -11408,7 +11713,7 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [28]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pred_test</span><span class="p">,</span> <span class="n">pred_hold</span> <span class="o">=</span> <span class="p">{},</span> <span class="p">{}</span>
@@ -11656,7 +11961,7 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [29]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">COMPARISONS</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"A"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"grade beyond objective"</span><span class="p">),</span>
@@ -11832,7 +12137,7 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [30]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Figure: paired deltas in macro-F1 with 95% CIs; shaded band = MDD (smaller gaps are within training noise)</span>
@@ -11882,7 +12187,7 @@ data\labels\labels_partner2.xlsx exists; kept (never overwritten)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">dtr</span> <span class="o">=</span> <span class="n">trainP</span><span class="p">[</span><span class="n">trainP</span><span class="o">.</span><span class="n">drafted</span> <span class="o">&amp;</span> <span class="n">trainP</span><span class="o">.</span><span class="n">log_pick</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
@@ -12004,7 +12309,7 @@ D0 − A: -3.3 picks (95% CI -4.7 to -1.8; negative = text helps)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [32]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">yh</span> <span class="o">=</span> <span class="n">holdP</span><span class="o">.</span><span class="n">tier_code</span><span class="o">.</span><span class="n">values</span>
@@ -12106,6 +12411,319 @@ D0 − A: -3.3 picks (95% CI -4.7 to -1.8; negative = text helps)
 <li><strong>Pick-number check:</strong> text cuts the pick error by 1.1 picks beyond the grade (MAE 45.3 → 44.2; CI −2.0 to −0.2). That is statistically real but small, about 2% of the error, and in line with the earlier contract notebook's result (−1.1 picks).</li>
 </ol>
 <p><strong>What this means for the LLM step.</strong> A bag-of-words reading of the text duplicates the grade. Section 7 tests whether a <em>reader</em> (Claude, with masked text) pulls out something different: an explicit tier projection, role, and injury or character flags. The bar Model E has to clear is the same pre-registered rule: E − B &gt; 0 with a CI above 0 <strong>and</strong> above the MDD (0.029 macro-F1).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c8a9d5bd">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="10.-Subgroups:-who-does-the-model-get-wrong?">10. Subgroups: who does the model get wrong?<a class="anchor-link" href="#10.-Subgroups:-who-does-the-model-get-wrong?">¶</a></h2><p>Model E's test errors (446 of 1,302, error rate 0.343), split by position group, Power-5 school, test year, and grade tertile. Model E is the subgroup check because it is the model that uses the AI step, which is what governance covers. Model D is shown for comparison. The disparate-impact ratio (DI) is each group's error rate over the lowest group's; DI above 1.25 is flagged. Method follows the Week 9 subgroup notebook (<code>src/evaluation.py</code>, <code>subgroup_errors</code>, <code>chi_square_errors</code>, <code>equalized_odds_recall</code>).</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=7ae9d087">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [35]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">src</span><span class="w"> </span><span class="kn">import</span> <span class="n">governance_checks</span> <span class="k">as</span> <span class="n">GC</span>
+
+<span class="n">GC</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>   <span class="c1"># writes docs/subgroups_costs_governance.md (sections 10-12)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
+<pre># Subgroups, cost and governance back-tests (sections 10-12)
+
+Test split n = 1302. Model D errors = 452 (0.347). Grade bands are tertiles of grade_pct on the test split, cut points [0.004, 0.336, 0.68, 1.0].
+
+## 10. Subgroup error rates (Model E, test; Model D for comparison)
+
+Model E errors = 446 (0.343).
+
+### Model E
+
+#### positionGroup
+
+| positionGroup   |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:----------------|----:|---------:|-------------:|-----------:|:------------|
+| RB              | 105 |       31 |        0.295 |      1     | False       |
+| LB              | 111 |       33 |        0.297 |      1.007 | False       |
+| QB              |  54 |       17 |        0.315 |      1.066 | False       |
+| DB              | 258 |       86 |        0.333 |      1.129 | False       |
+| OL              | 239 |       80 |        0.335 |      1.134 | False       |
+| WR              | 182 |       64 |        0.352 |      1.191 | False       |
+| TE              |  85 |       30 |        0.353 |      1.195 | False       |
+| DL              | 268 |      105 |        0.392 |      1.327 | True        |
+
+#### chi2 positionGroup
+
+chi-square p = 0.612, dof 7, min expected 18.5
+
+#### power5
+
+| power5   |    n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:---------|-----:|---------:|-------------:|-----------:|:------------|
+| False    |  245 |       62 |        0.253 |      1     | False       |
+| True     | 1057 |      384 |        0.363 |      1.436 | True        |
+
+#### chi2 power5
+
+chi-square p = 0.001, dof 1, min expected 83.9
+
+#### year_str
+
+|   year_str |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|-----------:|----:|---------:|-------------:|-----------:|:------------|
+|       2024 | 459 |      149 |        0.325 |      1     | False       |
+|       2025 | 433 |      152 |        0.351 |      1.081 | False       |
+|       2026 | 410 |      145 |        0.354 |      1.089 | False       |
+
+#### chi2 year_str
+
+chi-square p = 0.601, dof 2, min expected 140.4
+
+#### grade_band
+
+| grade_band   |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:-------------|----:|---------:|-------------:|-----------:|:------------|
+| low          | 438 |       97 |        0.221 |      1     | False       |
+| high         | 430 |      168 |        0.391 |      1.764 | True        |
+| mid          | 434 |      181 |        0.417 |      1.883 | True        |
+
+#### chi2 grade_band
+
+chi-square p = 0.000, dof 2, min expected 147.3
+
+#### equalized odds (positionGroup)
+
+|    |   class |   min_recall |   max_recall |   spread | unequal   |   groups |
+|---:|--------:|-------------:|-------------:|---------:|:----------|---------:|
+|  0 |       0 |        0.5   |        1     |    0.5   | True      |        7 |
+|  1 |       1 |        0.6   |        0.786 |    0.186 | False     |        8 |
+|  2 |       2 |        0.411 |        0.696 |    0.285 | True      |        8 |
+|  3 |       3 |        0.583 |        0.789 |    0.206 | True      |        8 |
+
+### Model D (comparison)
+
+#### positionGroup
+
+| positionGroup   |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:----------------|----:|---------:|-------------:|-----------:|:------------|
+| OL              | 239 |       74 |        0.31  |      1     | False       |
+| RB              | 105 |       33 |        0.314 |      1.015 | False       |
+| QB              |  54 |       17 |        0.315 |      1.017 | False       |
+| LB              | 111 |       37 |        0.333 |      1.077 | False       |
+| TE              |  85 |       29 |        0.341 |      1.102 | False       |
+| DB              | 258 |       92 |        0.357 |      1.152 | False       |
+| WR              | 182 |       65 |        0.357 |      1.153 | False       |
+| DL              | 268 |      105 |        0.392 |      1.265 | True        |
+
+#### chi2 positionGroup
+
+chi-square p = 0.675, dof 7, min expected 18.7
+
+#### power5
+
+| power5   |    n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:---------|-----:|---------:|-------------:|-----------:|:------------|
+| False    |  245 |       65 |        0.265 |       1    | False       |
+| True     | 1057 |      387 |        0.366 |       1.38 | True        |
+
+#### chi2 power5
+
+chi-square p = 0.004, dof 1, min expected 85.1
+
+#### year_str
+
+|   year_str |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|-----------:|----:|---------:|-------------:|-----------:|:------------|
+|       2024 | 459 |      144 |        0.314 |      1     | False       |
+|       2025 | 433 |      157 |        0.363 |      1.156 | False       |
+|       2026 | 410 |      151 |        0.368 |      1.174 | False       |
+
+#### chi2 year_str
+
+chi-square p = 0.171, dof 2, min expected 142.3
+
+#### grade_band
+
+| grade_band   |   n |   errors |   error_rate |   di_ratio | flag_1.25   |
+|:-------------|----:|---------:|-------------:|-----------:|:------------|
+| low          | 438 |       99 |        0.226 |      1     | False       |
+| high         | 430 |      170 |        0.395 |      1.749 | True        |
+| mid          | 434 |      183 |        0.422 |      1.866 | True        |
+
+#### chi2 grade_band
+
+chi-square p = 0.000, dof 2, min expected 149.3
+
+#### equalized odds (positionGroup)
+
+|    |   class |   min_recall |   max_recall |   spread | unequal   |   groups |
+|---:|--------:|-------------:|-------------:|---------:|:----------|---------:|
+|  0 |       0 |        0.5   |        1     |    0.5   | True      |        7 |
+|  1 |       1 |        0.533 |        0.784 |    0.25  | True      |        8 |
+|  2 |       2 |        0.411 |        0.696 |    0.285 | True      |        8 |
+|  3 |       3 |        0.611 |        0.788 |    0.176 | False     |        8 |
+
+## 11. Cost
+
+| run                                     | API      |        $ |
+|:----------------------------------------|:---------|---------:|
+| pilot v1 (2023, 52 items)               | standard |  0.22    |
+| pilot v2 (2023, 52 items)               | standard |  0.22    |
+| eval v2 (2024-26, 100 items)            | standard |  0.43    |
+| batch v2 (analysis set, 5,667)          | batch    | 11.62    |
+| total spent                             |          | 12.49    |
+| batch set at standard prices (not paid) | standard | 23.24    |
+| per report, batch                       | batch    |  0.00205 |
+
+## 12. Governance back-tests (review rules vs Model D test errors)
+
+| rule                                  |   flag_rate |   flagged |   errors |   caught |   catch_rate |   precision_of_flag |
+|:--------------------------------------|------------:|----------:|---------:|---------:|-------------:|--------------------:|
+| 1: abs(Claude tier - model tier) &gt;= 2 |       0.008 |        11 |      452 |        5 |        0.011 |               0.455 |
+| 2: Claude tier != model tier          |       0.433 |       564 |      452 |      225 |        0.498 |               0.399 |
+| 3: Claude recognized = true           |       0.031 |        40 |      452 |       11 |        0.024 |               0.275 |
+| 4: Claude injury_flag = 1             |       0.095 |       124 |      452 |       49 |        0.108 |               0.395 |
+
+
+written: C:\Users\olivi\OneDrive - University of Denver\INFO 4340\Final Project\INFO_4340_Final\docs\subgroups_costs_governance.md
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a494ec28">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="10.1-Results">10.1 Results<a class="anchor-link" href="#10.1-Results">¶</a></h3><ul>
+<li><strong>Power-5 schools:</strong> error rate 0.363 vs 0.253 for Model E (DI 1.44, flagged; chi-square p = 0.001). Model D shows the same gap (0.366 vs 0.265, DI 1.38, p = 0.004). This is the one subgroup gap that is clearly outside chance. The write-up should report it as a limit of the model, not a finding about the text.</li>
+<li><strong>Position group:</strong> no group is flagged by chi-square (p = 0.612 for E, 0.675 for D). DL is the only group above DI 1.25 in both models (E: 0.392, DI 1.33; D: 0.392, DI 1.27). That is too small a difference to call on its own, but the write-up should say it is flagged.</li>
+<li><strong>Test year:</strong> not significant (p = 0.601 for E, 0.171 for D). 2024 has the lowest error rate for E (0.325), and 2025 and 2026 are about 0.35.</li>
+<li><strong>Grade tertile:</strong> low-grade prospects are predicted more accurately (0.221) than mid (0.417) and high (0.391), chi-square p &lt; 0.001. This is partly a class-mix effect: low-grade prospects are mostly UDFA, and the model is most accurate on the most common class. Do not present it as unfairness without controlling for class.</li>
+<li><strong>Equalized odds (recall by position group):</strong> recall differs by more than 0.20 across groups for R1, R2-3 and R4-7, but groups with fewer than 3 prospects in a class are dropped, so some of these comparisons are small.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=53f2be79">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="11.-Cost">11. Cost<a class="anchor-link" href="#11.-Cost">¶</a></h2><table>
+<thead>
+<tr>
+<th>run</th>
+<th>API</th>
+<th>cost</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pilot v1 (2023, 52 items)</td>
+<td>standard</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>pilot v2 (2023, 52 items)</td>
+<td>standard</td>
+<td>$0.22</td>
+</tr>
+<tr>
+<td>eval v2 (2024-26, 100 items)</td>
+<td>standard</td>
+<td>$0.43</td>
+</tr>
+<tr>
+<td>batch v2 (analysis set, 5,667 reports)</td>
+<td>batch</td>
+<td>$11.62</td>
+</tr>
+<tr>
+<td><strong>total spent</strong></td>
+<td></td>
+<td><strong>$12.49</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The analysis batch would have cost $23.24 at standard prices, so the Batch API saved about half. Per report at batch prices: $0.00205.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=54a08f57">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="12.-Governance-back-tests">12. Governance back-tests<a class="anchor-link" href="#12.-Governance-back-tests">¶</a></h2><p>Four review rules, each with a numeric threshold, scored against Model D's test errors. A rule is useful if it catches many errors (catch rate) without flagging too many reports (flag rate). Precision is compared with the base error rate of 0.347.</p>
+<table>
+<thead>
+<tr>
+<th>rule</th>
+<th>flag rate</th>
+<th>caught / 452 errors</th>
+<th>catch rate</th>
+<th>precision</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1: abs(Claude tier - model tier) &gt;= 2</td>
+<td>0.8%</td>
+<td>5</td>
+<td>1.1%</td>
+<td>0.455</td>
+</tr>
+<tr>
+<td>2: Claude tier != model tier</td>
+<td>43.3%</td>
+<td>225</td>
+<td>49.8%</td>
+<td>0.399</td>
+</tr>
+<tr>
+<td>3: Claude recognized = true</td>
+<td>3.1%</td>
+<td>11</td>
+<td>2.4%</td>
+<td>0.275</td>
+</tr>
+<tr>
+<td>4: Claude injury_flag = 1</td>
+<td>9.5%</td>
+<td>49</td>
+<td>10.8%</td>
+<td>0.395</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reading:</strong> no rule is a good error detector. Rule 2 catches half the errors, but it flags 43% of reports and its precision (0.40) is barely above the base rate (0.35). Rule 1 is precise but flags too few reports to matter. Rule 3 (recognition) is weak, which supports the 7.5 result that recognition does not add much. The governance memo should use these numbers to set a review budget (for example, how many reports per class a human can read) and state the trade-off between flag rate and catch rate, rather than claim the rules prevent errors.</p>
 </div>
 </div>
 </div>
