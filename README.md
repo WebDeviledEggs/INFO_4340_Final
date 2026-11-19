@@ -43,11 +43,12 @@ To re-scrape the raw data (optional): `python scrape_nfl_prospects.py`
 | `src/evaluation.py` | Bootstrap CIs, paired bootstrap deltas, minimum detectable difference, subgroup and back-test helpers |
 | `src/modeling.py` | Feature sets and model pipelines (models A–D, length baseline, stacked text score) |
 | `src/labeling.py` | Human labeling sample and Excel workbooks |
+| `src/governance_checks_LLM.ipynb` | LLM-centric governance checks (used for Week 9 memo) |
 | `docs/codebook.md` | Labeling codebook (shared by both partners and the LLM) |
 | `data/prospects_clean.parquet` | Cleaned data, written by the notebook |
 | `data/labels/` | Labeling workbooks (`labels_partner1.xlsx`, `labels_partner2.xlsx`) and the item key |
-| `scrape_nfl_prospects.py` | Data collection |
-| `nfl_draft_contract_analysis.ipynb` | Earlier exploratory work on draft and second contracts. **Not part of the main workflow.** It depends on files not in this repo |
+| `src/scrape_nfl_prospects.py` | Data collection |
+| `archive/nfl_draft_contract_analysis.ipynb` | Earlier exploratory work on draft and second contracts. **Not part of the main workflow.** It depends on files not in this repo |
 | `instructions/` | Assignment instructions and the project outline |
 
 ## Findings
@@ -62,10 +63,11 @@ To re-scrape the raw data (optional): `python scrape_nfl_prospects.py`
 Once the grade is in the model, the text adds no detectable improvement: D − B = −0.000 macro-F1, with a 95% CI of −0.011 to +0.012. The minimum detectable difference is 0.029. The LLM results (Model E) are still to come.
 
 ## AI use and cost
-_TBD._ Model: `claude-opus-5-5` through the Message Batches API, `effort: "low"`, JSON output. Names, schools, and teams are masked before sending. Estimated about $45 for all runs, with a $60 cap. Actual cost will be reported here.
+Model: `claude-opus-5-5` through the Message Batches API, `effort: "low"`, JSON output. Names, schools, and teams are masked before sending. 
+Estimated about $12.49 for all runs, with a $25 cap.
 
 ## Governance
-_TBD. Summary of thresholds. The full governance memo is a separate PDF._
+See Week 9 - Governance Memo PDF for detailed LLM governance memo. Governance results related to trained models can be found in `docs/subgroups_costs_governance.md`.
 
 ## Authors
-INFO 4340 project pair, University of Denver.
+INFO 4340 project pair (Olivia Case and Adam Hoerger), University of Denver.
